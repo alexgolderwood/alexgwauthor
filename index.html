@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Author Name - Official Website</title>
+    <title>Alex Golder-Wood - Official Website</title>
     <style>
         /* Base styles */
         body {
@@ -186,13 +186,74 @@
         .social-icons a {
             display: inline-block;
             margin: 0 10px;
-            font-size: 24px;
-            color: #7f8c8d;
-            transition: color 0.3s;
+            padding: 10px 20px;
+            background-color: #2c3e50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
         }
         
         .social-icons a:hover {
-            color: #2c3e50;
+            background-color: #1a252f;
+        }
+        
+        /* Books page */
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 40px 0;
+        }
+        
+        .book-card {
+            background-color: white;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .book-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .book-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .book-card-content {
+            padding: 20px;
+        }
+        
+        /* Contact page */
+        .contact-info {
+            background-color: white;
+            padding: 40px;
+            border-radius: 5px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            margin: 40px 0;
+        }
+        
+        .contact-social {
+            margin-top: 30px;
+        }
+        
+        .contact-social a {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 5px;
+            text-decoration: none;
+            color: #333;
+            transition: background-color 0.3s;
+        }
+        
+        .contact-social a:hover {
+            background-color: #e0e0e0;
         }
         
         /* Footer */
@@ -217,14 +278,23 @@
             color: white;
             text-decoration: underline;
         }
+        
+        /* Tabs for pages */
+        #home-content, #about-content, #books-content, #contact-content {
+            display: none;
+        }
+        
+        #home-content.active, #about-content.active, #books-content.active, #contact-content.active {
+            display: block;
+        }
     </style>
 </head>
 <body>
     <!-- Header -->
     <header>
         <div class="container">
-            <h1>Your Author Name</h1>
-            <p>Bestselling Author of [Genre] Fiction</p>
+            <h1>Alex Golder-Wood</h1>
+            <p>Mystery & Psychological Thriller Author</p>
         </div>
     </header>
     
@@ -232,89 +302,190 @@
     <nav class="nav">
         <div class="container">
             <ul>
-                <li><a href="#" class="active">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Books</a></li>
-                <li><a href="#">Blog</a></li>
-                <li><a href="#">Events</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="#" class="nav-link active" data-tab="home">Home</a></li>
+                <li><a href="#" class="nav-link" data-tab="about">About</a></li>
+                <li><a href="#" class="nav-link" data-tab="books">Books</a></li>
+                <li><a href="#" class="nav-link" data-tab="contact">Contact</a></li>
             </ul>
         </div>
     </nav>
     
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="author-image">
-                <img src="/api/placeholder/400/400" alt="Author Name">
-            </div>
-            <div class="author-intro">
-                <h2>Welcome to my official website</h2>
-                <p>I'm [Your Name], an award-winning author of [genre] novels. My stories explore [themes you write about] and have captured the hearts of readers around the world.</p>
-                <p>With [X] published books and translations in [Y] languages, I'm passionate about creating immersive worlds and unforgettable characters that stay with you long after the final page.</p>
-                <p>Browse my website to discover my books, read my latest blog posts, and find out where you can meet me at upcoming events.</p>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Featured Book Section -->
-    <section class="featured-book">
-        <div class="container">
-            <h2>Featured Book</h2>
-            <h3>The Latest Release</h3>
-            <div class="book-display">
-                <div class="book-cover">
-                    <img src="/api/placeholder/300/450" alt="Book Title">
+    <!-- Home Content -->
+    <div id="home-content" class="active">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="author-image">
+                    <img src="/api/placeholder/400/400" alt="Alex Golder-Wood">
                 </div>
-                <div class="book-info">
-                    <h3>Book Title</h3>
-                    <h4>Book Series Name (if applicable)</h4>
-                    <p>"A captivating quote from a review of the book."</p>
-                    <p>— Review Source</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam at purus a eros dignissim tincidunt. Praesent id dolor non sem faucibus tincidunt in in urna. Vestibulum ante ipsum primis.</p>
-                    <a href="#" class="cta-button">Read More</a>
-                    <a href="#" class="cta-button">Order Now</a>
+                <div class="author-intro">
+                    <h2>Welcome to my official website</h2>
+                    <p>From the misty valleys and rugged landscapes of the Peak District comes the inspiration for my suspenseful tales of mystery and psychological intrigue.</p>
+                    <p>With my debut novel, "Shadows of the Green" released in April 2025, I weave stories that explore the darker corners of the human mind against the backdrop of breathtaking natural beauty.</p>
+                    <p>Currently, I'm crafting my second novel, "False Alarm," set to captivate readers later in 2025. Browse my website to discover my books, catch up on my latest writing journey, and find opportunities to connect at upcoming events.</p>
                 </div>
             </div>
-        </div>
-    </section>
-    
-    <!-- Newsletter Section -->
-    <section class="newsletter">
-        <div class="container">
-            <h2>Join My Newsletter</h2>
-            <p>Subscribe to receive updates on new releases, exclusive content, and upcoming events directly to your inbox.</p>
-            <div class="newsletter-form">
-                <input type="email" placeholder="Your email address">
-                <button type="submit">Subscribe</button>
+        </section>
+        
+        <!-- Featured Book Section -->
+        <section class="featured-book">
+            <div class="container">
+                <h2>Featured Book</h2>
+                <h3>Debut Novel - Out Now</h3>
+                <div class="book-display">
+                    <div class="book-cover">
+                        <img src="/api/placeholder/300/450" alt="Shadows of the Green">
+                    </div>
+                    <div class="book-info">
+                        <h3>Shadows of the Green</h3>
+                        <p>"A taut, atmospheric thriller that keeps you guessing until the final page."</p>
+                        <p>— The Book Review</p>
+                        <p>When a local historian disappears in the ancient woodlands of the Peak District, Detective Sarah Marlowe must navigate centuries-old secrets and modern-day deceptions to uncover the truth. As the shadows lengthen, she discovers that the bucolic landscape conceals deadly obsessions that someone will kill to protect.</p>
+                        <a href="https://www.amazon.co.uk/Shadows-Green-Alex-Golder-Wood-ebook/dp/B0F194LBD3/ref=sr_1_1?sr=8-1" class="cta-button" target="_blank">Buy Now on Amazon</a>
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
-    
-    <!-- Social Media Section -->
-    <section class="social-media">
-        <div class="container">
-            <h2>Connect With Me</h2>
-            <div class="social-icons">
-                <a href="#" title="Facebook">FB</a>
-                <a href="#" title="Twitter">TW</a>
-                <a href="#" title="Instagram">IG</a>
-                <a href="#" title="Goodreads">GR</a>
-                <a href="#" title="Amazon Author Page">AM</a>
+        </section>
+        
+        <!-- Newsletter Section -->
+        <section class="newsletter">
+            <div class="container">
+                <h2>Join My Newsletter</h2>
+                <p>Subscribe to receive updates on new releases, exclusive behind-the-scenes content, and upcoming events directly to your inbox.</p>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="Your email address">
+                    <button type="submit">Subscribe</button>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+        
+        <!-- Social Media Section -->
+        <section class="social-media">
+            <div class="container">
+                <h2>Connect With Me</h2>
+                <div class="social-icons">
+                    <a href="https://instagram.com/alexgwauthor" target="_blank">Instagram</a>
+                    <a href="https://tiktok.com/@alexgwauthor" target="_blank">TikTok</a>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <!-- About Content -->
+    <div id="about-content">
+        <section class="container" style="padding: 60px 0;">
+            <h2>About Alex Golder-Wood</h2>
+            <div style="display: flex; gap: 40px; margin-top: 30px;">
+                <div style="flex: 1;">
+                    <img src="/api/placeholder/400/500" alt="Alex Golder-Wood" style="width: 100%; border-radius: 5px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                </div>
+                <div style="flex: 2;">
+                    <p>Based in the dramatic landscapes of the Peak District, I draw inspiration from the mysterious moors, ancient woodlands, and tight-knit communities that define this remarkable part of England.</p>
+                    <p>My journey as an author began with a lifelong fascination with the psychological aspects of crime and the intricate web of human relationships. Having studied psychology and criminal behavior, I weave this expertise into narratives that explore the darker impulses that drive us all.</p>
+                    <p>When not writing, I can be found hiking the trails of the Peak District, researching local folklore, or enjoying a quiet evening with a good book and a cup of tea in my cottage overlooking the valleys.</p>
+                    <p>My debut novel, "Shadows of the Green," introduces readers to Detective Sarah Marlowe, a character whose journey will continue in my upcoming works. The sequel, "False Alarm," delves deeper into Sarah's world as she faces new challenges that test her understanding of truth and perception.</p>
+                    <p>I believe that the most compelling mysteries are those that reveal as much about ourselves as they do about the crime at hand. It's this human element that I strive to capture in every story I tell.</p>
+                    <p>Thank you for visiting my website and joining me on this literary adventure. I look forward to sharing more stories with you in the years to come.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <!-- Books Content -->
+    <div id="books-content">
+        <section class="container" style="padding: 60px 0;">
+            <h2>My Books</h2>
+            <div class="books-grid">
+                <div class="book-card">
+                    <a href="https://www.amazon.co.uk/Shadows-Green-Alex-Golder-Wood-ebook/dp/B0F194LBD3/ref=sr_1_1?sr=8-1" target="_blank">
+                        <img src="/api/placeholder/400/600" alt="Shadows of the Green">
+                    </a>
+                    <div class="book-card-content">
+                        <h3>Shadows of the Green</h3>
+                        <p>My debut thriller set in the heart of the Peak District.</p>
+                        <p>Released: April 2025</p>
+                        <a href="https://www.amazon.co.uk/Shadows-Green-Alex-Golder-Wood-ebook/dp/B0F194LBD3/ref=sr_1_1?sr=8-1" class="cta-button" target="_blank">Buy on Amazon</a>
+                    </div>
+                </div>
+                <div class="book-card">
+                    <img src="/api/placeholder/400/600" alt="False Alarm">
+                    <div class="book-card-content">
+                        <h3>False Alarm</h3>
+                        <p>The thrilling sequel to Shadows of the Green.</p>
+                        <p>Coming: Late 2025</p>
+                        <a href="#" class="cta-button" style="background-color: #7f8c8d;">Coming Soon</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <!-- Contact Content -->
+    <div id="contact-content">
+        <section class="container" style="padding: 60px 0;">
+            <h2>Get in Touch</h2>
+            <div class="contact-info">
+                <p>I love hearing from readers! For inquiries about events, interviews, or just to say hello, you can reach me through social media or email.</p>
+                <h3>Connect on Social Media</h3>
+                <div class="contact-social">
+                    <a href="https://instagram.com/alexgwauthor" target="_blank">Instagram: @alexgwauthor</a>
+                    <a href="https://tiktok.com/@alexgwauthor" target="_blank">TikTok: @alexgwauthor</a>
+                </div>
+                <h3>For Media Inquiries</h3>
+                <p>Please contact my publisher at [Publisher Email/Contact]</p>
+            </div>
+        </section>
+    </div>
     
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2025 Your Author Name. All Rights Reserved.</p>
+            <p>&copy; 2025 Alex Golder-Wood. All Rights Reserved.</p>
             <div class="footer-links">
                 <a href="#">Privacy Policy</a>
                 <a href="#">Terms of Use</a>
-                <a href="#">Contact</a>
+                <a href="#" class="nav-link" data-tab="contact">Contact</a>
             </div>
         </div>
     </footer>
+
+    <script>
+        // Simple JavaScript for tab navigation
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabs = document.querySelectorAll('.nav-link');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Remove active class from all tabs and content
+                    tabs.forEach(t => t.classList.remove('active'));
+                    document.querySelectorAll('#home-content, #about-content, #books-content, #contact-content').forEach(content => {
+                        content.classList.remove('active');
+                    });
+                    
+                    // Add active class to clicked tab and corresponding content
+                    this.classList.add('active');
+                    document.getElementById(this.dataset.tab + '-content').classList.add('active');
+                    
+                    // Scroll to top
+                    window.scrollTo(0, 0);
+                });
+            });
+            
+            // Also handle footer links
+            document.querySelectorAll('.footer-links .nav-link').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    tabs.forEach(t => {
+                        if(t.dataset.tab === this.dataset.tab) {
+                            t.click();
+                        }
+                    });
+                });
+            });
+        });
+    </script>
 </body>
 </html>
